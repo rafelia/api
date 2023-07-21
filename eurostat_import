@@ -1,0 +1,15 @@
+#Install the library
+
+pip install pyjstat
+
+#Import the library
+from pyjstat import pyjstat
+
+url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?format=JSON&unit=NR&sex=M&age=TOTAL&lang=en"
+
+# read from eurostat
+dataset = pyjstat.Dataset.read(url)
+
+# write to dataframe
+df = dataset.write('dataframe')
+print(df)
